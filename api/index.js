@@ -9,6 +9,7 @@ const {
   ALLOWED_AUDIENCES, // Auth0 API Audience List
   PORT,
 } = require("./env-config");
+const { randomInt } = require("crypto");
 
 const app = express();
 
@@ -27,6 +28,19 @@ const expenses = [
     date: new Date(),
     description: "Coffee for a Coding Dojo session.",
     value: 42,
+  },
+];
+
+const news = [
+  {
+    date: new Date(),
+    description: "Days since I had under 20 tickets",
+    value: randomInt(30, 90),
+  },
+  {
+    date: new Date(),
+    description: "Days daycare has been closed for quarantine",
+    value: randomInt(30, 90),
   },
 ];
 
@@ -51,6 +65,10 @@ app.get("/total", (req, res) => {
 
 app.get("/reports", (req, res) => {
   res.send(expenses);
+});
+
+app.get("/news", (req, res) => {
+  res.send(news);
 });
 
 createServer(app).listen(PORT, () => {
