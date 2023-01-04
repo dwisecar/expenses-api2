@@ -62,9 +62,9 @@ app.get("/total", (req, res) => {
   res.send({ total, count: expenses.length });
 });
 
-// 👆 public routes above 👆
+// 👆 public routes above 
 app.use(auth());
-// 👇 private routes below 👇
+// 👇 private routes below 
 
 app.get("/reports", (req, res) => {
   res.send(expenses);
