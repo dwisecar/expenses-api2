@@ -63,7 +63,9 @@ app.get("/total", (req, res) => {
 });
 
 // 👆 public routes above 
+
 app.use(auth());
+
 // 👇 private routes below 
 
 app.get("/reports", (req, res) => {
