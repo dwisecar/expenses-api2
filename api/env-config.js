@@ -7,9 +7,7 @@ const {
   PORT = 5000,
 } = process.env;
 
-const appUrl = VERCEL_URL
-  ? `https://${VERCEL_GITHUB_REPO}-git-master-${VERCEL_GITHUB_ORG.toLowerCase()}.vercel.app`
-  : `http://localhost:${PORT}`;
+const appUrl = "https://expenses-api-sable-delta.vercel.app";
 
 function checkUrl() {
   return (req, res, next) => {
